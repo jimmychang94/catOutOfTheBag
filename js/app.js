@@ -2,7 +2,7 @@
 var playerArray = [];
 var cardArray = [];
 var playerForm = document.getElementById('playerForm');
-
+var playerList = document.getElementById('playerList');
 //constructors
 function Player (name, id) {
   this.name = name;
@@ -31,10 +31,10 @@ function playerEvent(event) {
   nameArray.push(event.target.player2.value);
   nameArray.push(event.target.player3.value);
   nameArray.push(event.target.player4.value);
-  playerIdArray.push(event.target.player1.id);
-  playerIdArray.push(event.target.player2.id);
-  playerIdArray.push(event.target.player3.id);
-  playerIdArray.push(event.target.player4.id);
+  playerIdArray.push(event.target.player1.name);
+  playerIdArray.push(event.target.player2.name);
+  playerIdArray.push(event.target.player3.name);
+  playerIdArray.push(event.target.player4.name);
   for (var i = 0; i < 4; i ++) {
     console.log(playerIdArray[i]);
     new Player(nameArray[i], playerIdArray[i]);
@@ -42,4 +42,18 @@ function playerEvent(event) {
 
 }
 //adding event listener
-playerForm.addEventListener('submit', playerEvent);
+// playerForm.addEventListener('submit', playerEvent);
+
+// adding players names to the voting list
+
+function votingListForPlayers() {
+  var ulEl = document.createElement('ul');
+  var liEl = document.createElement('li');
+  for (var i = 0; i < playerArray.length; i++) {
+    console.log(playerArray[i]);
+    liEl.textContent = playerArray[i].name;
+    ulEl.appendChild(liEl);
+  }
+  playerList.appendChild(ulEl);
+}
+votingListForPlayers();
