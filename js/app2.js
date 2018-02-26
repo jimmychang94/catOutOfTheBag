@@ -34,14 +34,16 @@ function votingListForPlayers() {
   }
 }
 votingListForPlayers();
-function render(){
+
+function render() {
   var cardContainer = document.getElementById('cardContainer');
   var pEl = document.createElement('p');
-  pEl.textContent = cardArray['randwhendone'].content; //need insert rng function
+  pEl.textContent = cardArray[generateRandom()].content;  
   cardContainer.appendChild(pEl);
 }
-
 // random number generator
-function generateRandom() {
+function generateRandom () {
   return Math.floor(Math.random() * cardArray.length);
 }
+
+
