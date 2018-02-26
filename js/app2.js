@@ -19,6 +19,10 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
+// random number generator
+function generateRandom () {
+  Math.floor(Math.random() * cardArray.length);
+}
 
 // adding players names to the voting list
 
