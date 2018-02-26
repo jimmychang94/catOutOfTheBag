@@ -3,7 +3,7 @@
 //global variables
 var playerArray = [];
 var cardArray = [];
-var playerForm = document.getElementById('playerForm');
+var randomCard = [];
 
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub toe?');
@@ -36,14 +36,22 @@ function votingListForPlayers() {
 votingListForPlayers();
 
 function render() {
+  while(randomCard.length < 2) {
+    var randomNum = generateRandom();
+    while(!randomCard.includes(randomNum)) {
+      randomCard.push(randomNum);
+    }
+  }
+
+  var rand = randomCard.shift();
   var cardContainer = document.getElementById('cardContainer');
   var pEl = document.createElement('p');
-  pEl.textContent = cardArray[generateRandom()].content;  
+  pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
 // random number generator
 function generateRandom () {
   return Math.floor(Math.random() * cardArray.length);
 }
-
+render();
 
