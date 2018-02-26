@@ -1,13 +1,26 @@
+//global variables
 var playerArray = [];
+var cardArray = [];
 var playerForm = document.getElementById('playerForm');
 
+//constructors
 function Player (name, id) {
   this.name = name;
   this.id = id;
   this.vote = 0;
+  this.cardWon = [];
   playerArray.push(this);
 }
 
+function Card (name, id, content) {
+  this.name = name;
+  this.id = id;
+  this.content = content;
+
+  cardArray.push(this);
+}
+
+//eventhandler
 function playerEvent(event) {
   var nameArray = [];
   var idArray = [];
@@ -20,5 +33,5 @@ function playerEvent(event) {
     Player(nameArray[i], idArray[i]);
   }
 }
-
+//adding event listener
 playerForm.addEventListener('submit', playerEvent);
