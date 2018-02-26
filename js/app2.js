@@ -4,13 +4,12 @@
 var playerArray = [];
 var cardArray = [];
 var playerForm = document.getElementById('playerForm');
-var playerList = document.getElementById('playerList');
 
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub toe?');
 new Card('card2', 'Who is most likely to sleep with a teddy bear?');
-//constructors
 
+//constructors
 
 function Card (name, content) {
   this.name = name;
@@ -19,17 +18,19 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
+function getPlayerNamesFromLocalStorage() {
+  var playerArrayRetrieved = localStorage.getItem('playerArray');
+  playerArray = JSON.parse(playerArrayRetrieved);
+}
+
+getPlayerNamesFromLocalStorage();
 
 // adding players names to the voting list
 
 function votingListForPlayers() {
-  var ulEl = document.createElement('ul');
-  var liEl = document.createElement('li');
+  var labels = document.getElementsByClassName('player');
   for (var i = 0; i < playerArray.length; i++) {
-    console.log(playerArray[i]);
-    liEl.textContent = playerArray[i].name;
-    ulEl.appendChild(liEl);
+    labels[i].textContent = playerArray[i].name;
   }
-  playerList.appendChild(ulEl);
 }
 votingListForPlayers();
