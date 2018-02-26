@@ -24,22 +24,26 @@ function Card (name, id, content) {
 function playerEvent(event) {
 
   event.preventDefault();
-
-  var nameArray = [];
-  var playerIdArray = [];
-  nameArray.push(event.target.player1.value);
-  nameArray.push(event.target.player2.value);
-  nameArray.push(event.target.player3.value);
-  nameArray.push(event.target.player4.value);
-  playerIdArray.push(event.target.player1.id);
-  playerIdArray.push(event.target.player2.id);
-  playerIdArray.push(event.target.player3.id);
-  playerIdArray.push(event.target.player4.id);
-  for (var i = 0; i < 4; i ++) {
-    console.log(playerIdArray[i]);
-    new Player(nameArray[i], playerIdArray[i]);
+  if (localStorage.playerArray > 0) {
+    var playerArrayRetrieve = localStorage.getItem('playerArray');
+    playerArray = JSON.parse(playerArrayRetrieve);
+  } else {
+    var nameArray = [];
+    var playerIdArray = [];
+    nameArray.push(event.target.player1.value);
+    nameArray.push(event.target.player2.value);
+    nameArray.push(event.target.player3.value);
+    nameArray.push(event.target.player4.value);
+    playerIdArray.push(event.target.player1.name);
+    playerIdArray.push(event.target.player2.name);
+    playerIdArray.push(event.target.player3.name);
+    playerIdArray.push(event.target.player4.name);
+    for (var i = 0; i < 4; i ++) {
+      new Player(nameArray[i], playerIdArray[i]);
+    }
   }
-
+  var playerArrayStrigify = JSON.stringify(playerArray);
+  localStorage.setItem('playerArray', playerArrayStrigify);
 }
 //adding event listener
 playerForm.addEventListener('submit', playerEvent);
