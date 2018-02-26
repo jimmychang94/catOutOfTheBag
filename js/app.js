@@ -1,7 +1,10 @@
+'use strict';
+
 //global variables
 var playerArray = [];
 var cardArray = [];
 var playerForm = document.getElementById('playerForm');
+
 
 //constructors
 function Player (name, id) {
@@ -12,13 +15,6 @@ function Player (name, id) {
   playerArray.push(this);
 }
 
-function Card (name, id, content) {
-  this.name = name;
-  this.id = id;
-  this.content = content;
-
-  cardArray.push(this);
-}
 
 //eventhandler
 function playerEvent(event) {
@@ -38,8 +34,10 @@ function playerEvent(event) {
   for (var i = 0; i < 4; i ++) {
     console.log(playerIdArray[i]);
     new Player(nameArray[i], playerIdArray[i]);
-  }
 
+  }
+  var playerArrayStrigify = JSON.stringify(playerArray);
+  localStorage.setItem('playerArray', playerArrayStrigify);
 }
 //adding event listener
 playerForm.addEventListener('submit', playerEvent);
