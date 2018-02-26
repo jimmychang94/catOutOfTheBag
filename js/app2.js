@@ -18,27 +18,28 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
-// function getPlayerNamesFromLocalStorage() {
-//   var playerArrayRetrieved = localStorage.getItem('playerArray');
-//   playerArray = JSON.parse(playerArrayRetrieved);
-// }
+function getPlayerNamesFromLocalStorage() {
+  var playerArrayRetrieved = localStorage.getItem('playerArray');
+  playerArray = JSON.parse(playerArrayRetrieved);
+}
 
-// getPlayerNamesFromLocalStorage();
+getPlayerNamesFromLocalStorage();
 
-// // adding players names to the voting list
+// adding players names to the voting list
 
-// function votingListForPlayers() {
-//   var labels = document.getElementsByClassName('player');
-//   for (var i = 0; i < playerArray.length; i++) {
-//     labels[i].textContent = playerArray[i].name;
-//   }
-// }
-// votingListForPlayers();
+function votingListForPlayers() {
+  var labels = document.getElementsByClassName('player');
+  for (var i = 0; i < playerArray.length; i++) {
+    labels[i].textContent = playerArray[i].name;
+  }
+}
+votingListForPlayers();
+
 function render() {
-    var cardContainer = document.getElementById('cardContainer');
-    var pEl = document.createElement('p');
-    pEl.textContent = cardArray[generateRandom()].content;  
-    cardContainer.appendChild(pEl);
+  var cardContainer = document.getElementById('cardContainer');
+  var pEl = document.createElement('p');
+  pEl.textContent = cardArray[generateRandom()].content;  
+  cardContainer.appendChild(pEl);
 }
 // random number generator
 function generateRandom () {
