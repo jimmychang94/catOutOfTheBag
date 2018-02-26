@@ -18,8 +18,13 @@ function playerEvent(event) {
 
   event.preventDefault();
 
+  if (localStorage.playerArray > 0) {
+    localStorage.clear();
+  }
+
   var nameArray = [];
   var playerIdArray = [];
+  playerArray = [];
   nameArray.push(event.target.player1.value);
   nameArray.push(event.target.player2.value);
   nameArray.push(event.target.player3.value);
