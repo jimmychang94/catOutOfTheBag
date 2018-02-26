@@ -19,17 +19,23 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
+var render = function(){
+    var cardContainer = document.getElementById('cardContainer');
+    var pEl = document.createElement('p');
+    pEl.textContent = cardArray['randwhendone'].content;  //need insert rng function
+    cardContainer.appendChild(pEl);
+}
 
 // adding players names to the voting list
 
-function votingListForPlayers() {
-  var ulEl = document.createElement('ul');
-  var liEl = document.createElement('li');
-  for (var i = 0; i < playerArray.length; i++) {
-    console.log(playerArray[i]);
-    liEl.textContent = playerArray[i].name;
-    ulEl.appendChild(liEl);
-  }
-  playerList.appendChild(ulEl);
-}
-votingListForPlayers();
+// function votingListForPlayers() {
+//   var ulEl = document.createElement('ul');
+//   var liEl = document.createElement('li');
+//   for (var i = 0; i < playerArray.length; i++) {
+//     console.log(playerArray[i]);
+//     liEl.textContent = playerArray[i].name;
+//     ulEl.appendChild(liEl);
+//   }
+//   playerList.appendChild(ulEl);
+// }
+// votingListForPlayers();
