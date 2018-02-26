@@ -41,6 +41,8 @@ function render() {
   pEl.textContent = cardArray[generateRandom()].content;  
   cardContainer.appendChild(pEl);
 }
+render();
+
 // random number generator
 function generateRandom () {
   return Math.floor(Math.random() * cardArray.length);
