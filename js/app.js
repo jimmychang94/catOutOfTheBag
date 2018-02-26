@@ -22,16 +22,24 @@ function Card (name, id, content) {
 
 //eventhandler
 function playerEvent(event) {
+
+  event.preventDefault();
+
   var nameArray = [];
-  var idArray = [];
+  var playerIdArray = [];
   nameArray.push(event.target.player1.value);
   nameArray.push(event.target.player2.value);
   nameArray.push(event.target.player3.value);
   nameArray.push(event.target.player4.value);
-  idArray.push(event.target.player1.id);
+  playerIdArray.push(event.target.player1.id);
+  playerIdArray.push(event.target.player2.id);
+  playerIdArray.push(event.target.player3.id);
+  playerIdArray.push(event.target.player4.id);
   for (var i = 0; i < 4; i ++) {
-    Player(nameArray[i], idArray[i]);
+    console.log(playerIdArray[i]);
+    new Player(nameArray[i], playerIdArray[i]);
   }
+
 }
 //adding event listener
 playerForm.addEventListener('submit', playerEvent);
