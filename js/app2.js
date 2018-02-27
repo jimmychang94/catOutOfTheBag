@@ -110,6 +110,14 @@ function nextCard () {
     playerNum = 0;
     playerList.removeEventListener('submit', votingEvent);
     playerList.style.display = 'none';
+<<<<<<< HEAD
+    // Results!!!!
+    drawBarGraph();
+  }
+
+  if(false) {
+=======
+>>>>>>> master
     // For the new card
     pEl.textContent = '';
     render();
