@@ -82,6 +82,24 @@ function winner () {
   playerArray[playerWin].win += 1;
 }
 
+// finds the number of wins
+
+function numberOfWins() {
+  var winArray = [];
+  for (var i = 0; i < playerArray.length; i++) {
+    winArray.push(playerArray[i].win);
+  }
+  return winArray;
+}
+
+function playerNames() {
+  var nameArray = [];
+  for (var i = 0; i < playerArray.length; i ++) {
+    nameArray.push(playerArray[i].name);
+  }
+  return nameArray;
+}
+
 function nextCard () {
   playerNum += 1;
   if (playerNum === playerArray.length) {
@@ -91,7 +109,7 @@ function nextCard () {
     playerList.removeEventListener('submit', votingEvent);
     playerList.style.display = 'none';
     // Results!!!!
-    // drawBarGraph();
+    drawBarGraph();
   }
 
   if(false) {
@@ -132,21 +150,22 @@ playerList.addEventListener('submit', votingEvent);
 
 // Making the graph
 
-var data = {
-  labels: labels,
-  datasets: [{
-    label: 'Bar Graph Of Votes',
-    data: playerArray,
-    backgroundColor: [
-      'bisque',
-      'darkgray',
-      'burlywood',
-      'lightblue',
-    ],
-  }]
-};
-
 function drawBarGraph() {
+  var winArray = numberOfWins();
+  var nameArray = playerNames();
+  var data = {
+    labels: nameArray,
+    datasets: [{
+      label: 'Bar Graph Of Votes',
+      data: winArray,
+      backgroundColor: [
+        'bisque',
+        'darkgray',
+        'burlywood',
+        'lightblue',
+      ],
+    }]
+  };
   var ctx = document.getElementById('playerWinsChart');
   new Chart(ctx, {
     type: 'bar',
@@ -156,16 +175,16 @@ function drawBarGraph() {
       animation: {
         duration: 1000,
         easing: 'easeOutBounce'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            max: 10,
+            min: 0,
+            stepSize: 1.0
+          }
+        }]
       }
-    },
-    scales: {
-      yAxes: [{
-        ticks: {
-          max: 25,
-          min: 0,
-          stepSize: 1.0
-        }
-      }]
     }
   });
 }
