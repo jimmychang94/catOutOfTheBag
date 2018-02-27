@@ -63,6 +63,7 @@ render();
 function votingEvent (event) {
 
   event.preventDefault();
+  
   playerNum += 1;
   if (playerNum === playerArray.length) {
     playerNum = 0;
