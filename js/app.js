@@ -34,6 +34,12 @@ function playerEvent(event) {
   playerIdArray.push(event.target.player2.name);
   playerIdArray.push(event.target.player3.name);
   playerIdArray.push(event.target.player4.name);
+
+  if (nameArray.includes('')) {
+    alert('Please include all player names!');
+    return;
+  }
+
   for (var i = 0; i < nameArray.length; i ++) {
     new Player(nameArray[i], playerIdArray[i]);
   }
