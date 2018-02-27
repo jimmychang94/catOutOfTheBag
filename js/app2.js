@@ -11,6 +11,11 @@ var playerHeader = document.getElementById('playerHeader');
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub toe?');
 new Card('card2', 'Who is most likely to sleep with a teddy bear?');
+new Card('card3', 'Who is most likely to live a secrect life?');
+new Card('card4', 'Who is the best dancer?');
+new Card('card5', 'Most likely to be famous?');
+new Card('card6', 'Looks most like a celebirty?');
+new Card('card7', 'Who likes to talk the most?');
 
 //constructors
 
@@ -69,8 +74,8 @@ function votingEvent (event) {
     playerNum = 0;
     playerList.removeEventListener('submit', votingEvent);
     playerList.style.display = 'none';
-    // generateChart();
     // Results!!!!
+    // drawBarGraph();
   }
 
   if(false) {
@@ -101,3 +106,43 @@ function votingEvent (event) {
 }
 
 playerList.addEventListener('submit', votingEvent);
+
+// Making the graph
+
+var data = {
+  labels: labels,
+  datasets: [{
+    label: 'Bar Graph Of Votes',
+    data: playerArray,
+    backgroundColor: [
+      'bisque',
+      'darkgray',
+      'burlywood',
+      'lightblue',
+    ],
+  }]
+};
+
+function drawBarGraph() {
+  var ctx = document.getElementById('playerWinsChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: false,
+      animation: {
+        duration: 1000,
+        easing: 'easeOutBounce'
+      }
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          max: 25,
+          min: 0,
+          stepSize: 1.0
+        }
+      }]
+    }
+  });
+}
