@@ -65,12 +65,28 @@ function generateRandom () {
 }
 render();
 
-function votingEvent (event) {
+function clearVotes () {
+  for (var i = 0; i < playerArray.length; i ++) {
+    playerArray[i].vote = 0;
+  }
+}
 
-  event.preventDefault();
-  
+// Finds who has the most votes
+function winner () {
+  var voteArray = [];
+  for (var i = 0; i < playerArray.length; i ++) {
+    voteArray.push(playerArray[i].vote);
+  }
+  var largestNum = Math.max(...voteArray);
+  var playerWin = voteArray.indexOf(largestNum);
+  playerArray[playerWin].win += 1;
+}
+
+function nextCard () {
   playerNum += 1;
   if (playerNum === playerArray.length) {
+    winner();
+    clearVotes();
     playerNum = 0;
     playerList.removeEventListener('submit', votingEvent);
     playerList.style.display = 'none';
@@ -85,6 +101,12 @@ function votingEvent (event) {
     playerList.style.display = 'block';
     playerList.addEventListener('submit', votingEvent);
   }
+}
+
+// submit event
+function votingEvent (event) {
+
+  event.preventDefault();
 
   var votingArray = [];
   votingArray.push(event.target.player1.checked);
@@ -96,6 +118,7 @@ function votingEvent (event) {
   for(var i = 0; i < playerArray.length; i ++) {
     if (votingArray[i]) {
       playerArray[i].vote += 1;
+      nextCard();
       playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
       event.target.reset();
       return;
