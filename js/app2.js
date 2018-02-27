@@ -72,13 +72,14 @@ function clearVotes () {
 }
 
 // Finds who has the most votes
+var playerWin = null;
 function winner () {
   var voteArray = [];
   for (var i = 0; i < playerArray.length; i ++) {
     voteArray.push(playerArray[i].vote);
   }
   var largestNum = Math.max(...voteArray);
-  var playerWin = voteArray.indexOf(largestNum);
+  playerWin = voteArray.indexOf(largestNum);
   playerArray[playerWin].win += 1;
 }
 
@@ -100,25 +101,22 @@ function playerNames() {
   return nameArray;
 }
 
+// This checks to see if everyone has voted and then gives the next array
 function nextCard () {
-  playerNum += 1;
   if (playerNum === playerArray.length) {
     winner();
     clearVotes();
     playerNum = 0;
     playerList.removeEventListener('submit', votingEvent);
     playerList.style.display = 'none';
-    // Results!!!!
-    drawBarGraph();
-  }
-
-  if(false) {
     // For the new card
     pEl.textContent = '';
     render();
+    playerHeader.textContent = playerArray[playerWin].name + ' won the last round! ' + playerArray[playerNum].name + ' please vote!';
     playerList.style.display = 'block';
     playerList.addEventListener('submit', votingEvent);
   }
+
 }
 
 // submit event
@@ -135,9 +133,13 @@ function votingEvent (event) {
 
   for(var i = 0; i < playerArray.length; i ++) {
     if (votingArray[i]) {
+      playerNum += 1;
       playerArray[i].vote += 1;
-      nextCard();
-      playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
+      if (playerNum < playerArray.length) {
+        playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
+      } else {
+        nextCard();
+      }
       event.target.reset();
       return;
     }
