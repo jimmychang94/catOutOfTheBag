@@ -1,6 +1,8 @@
 body {
   background-image: url(../img/pokerBackground.jpg);
   font-family: 'Mukta Mahee', sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 header {
@@ -12,11 +14,9 @@ header {
 }
 
 header h1 {
-  width: 50%;
+  width: 60%;
   margin: 0px auto 0px auto;
   float: right;
-  padding-right: 20px;
-  border: 3px solid black;
   height: 100px;
 }
 
@@ -27,10 +27,15 @@ header h1 {
   margin-left: 20px;
 }
 
+ul {
+  float: right;
+}
+
  li {
-  display: inline-block;
-  font-size: 30px; 
-  margin: 0px auto 0 auto;
+  display: inline;
+  font-size: 30px;
+  margin: 20px;
+  padding: 5px;
   border: 5px solid black;
 }
 
@@ -68,4 +73,13 @@ button:hover {
   height: 300px; 
   margin: 30px auto 50px auto;
   border-radius: 8px;
+}
+
+#playerForm {
+  width: 67%;
+  margin: 0px auto 0px auto;
+}
+
+main h2 {
+  text-align: center;
 }
