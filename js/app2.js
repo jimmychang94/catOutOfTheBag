@@ -46,7 +46,7 @@ votingListForPlayers();
 
 var pEl = document.createElement('p');
 function render() {
-  while(randomCard.length < 2) {
+  while(randomCard.length < cardArray.length) {
     var randomNum = generateRandom();
     while(!randomCard.includes(randomNum)) {
       randomCard.push(randomNum);
@@ -54,6 +54,7 @@ function render() {
   }
 
   var rand = randomCard.shift();
+  // console.log(rand, 'random card that got shifted out');
   var cardContainer = document.getElementById('cardContainer');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
@@ -130,6 +131,10 @@ function votingEvent (event) {
   votingArray.push(event.target.player3.checked);
   votingArray.push(event.target.player4.checked);
 
+  if(!votingArray.includes(true)) {
+    alert('Please vote on someone!');
+    return;
+  }
 
   for(var i = 0; i < playerArray.length; i ++) {
     if (votingArray[i]) {
