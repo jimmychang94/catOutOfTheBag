@@ -8,7 +8,8 @@ var playerNum = 0;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
 var cardContainer = document.getElementById('cardContainer');
-var endGame = 2;
+var newGame = document.getElementById('newGame');
+var endGame = 0;
 
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub toe?');
@@ -90,8 +91,8 @@ function winner () {
       playerList.style.display = 'none';
       cardContainer.style.display = 'none';
       console.log('game over');
-
       drawBarGraph();
+      newGame.style.display = 'block';
       return;
     }
 
