@@ -8,6 +8,7 @@ var playerNum = 0;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
 var cardContainer = document.getElementById('cardContainer');
+var newGame = document.getElementById('newGame');
 var endGame = 0;
 
 //creating card objects using Card constructor
@@ -91,7 +92,7 @@ function winner () {
       cardContainer.style.display = 'none';
       console.log('game over');
       drawBarGraph();
-      
+      newGame.style.display = 'block';
       return;
     }
 

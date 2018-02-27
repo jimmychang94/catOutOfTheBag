@@ -89,3 +89,12 @@ main h2 {
   margin: 20px auto;
   background-color: whitesmoke;
 }
+#newGame {
+  display: none;
+  width: 15vw;
+  margin: auto;
+}
+
+#newGame button {
+  padding: 20px 30px;
+}
