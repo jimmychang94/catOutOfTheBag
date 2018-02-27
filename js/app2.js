@@ -7,7 +7,8 @@ var randomCard = [];
 var playerNum = 0;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
-var endGame = 2
+var cardContainer = document.getElementById('cardContainer');
+var endGame = 2;
 
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub toe?');
@@ -56,7 +57,6 @@ function render() {
 
   var rand = randomCard.shift();
   // console.log(rand, 'random card that got shifted out');
-  var cardContainer = document.getElementById('cardContainer');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
@@ -83,18 +83,18 @@ function winner () {
   var largestNum = Math.max(...voteArray);
   playerWin = voteArray.indexOf(largestNum);
   playerArray[playerWin].win += 1;
-  //game over 
-  for (var i = 0; i < playerArray.length; i++) {
-      if (playerArray[i].win > endGame) {
-            playerList.removeEventListener('submit', votingEvent);
-            playerList.style.display = 'none';
-            cardContainer.style.display = 'none';
-            console.log('game over');
+  //game over
+  for (i = 0; i < playerArray.length; i++) {
+    if (playerArray[i].win > endGame) {
+      playerList.removeEventListener('submit', votingEvent);
+      playerList.style.display = 'none';
+      cardContainer.style.display = 'none';
+      console.log('game over');
 
-            drawBarGraph();
-            return;
-      }
-      
+      drawBarGraph();
+      return;
+    }
+
   }
 }
 
