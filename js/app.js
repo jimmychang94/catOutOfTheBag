@@ -40,6 +40,7 @@ function playerEvent(event) {
 
   var playerArrayStrigify = JSON.stringify(playerArray);
   localStorage.setItem('playerArray', playerArrayStrigify);
+  window.location.href = 'game.html';
 }
 
 //adding event listener
