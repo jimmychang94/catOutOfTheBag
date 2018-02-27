@@ -4,6 +4,9 @@
 var playerArray = [];
 var cardArray = [];
 var randomCard = [];
+var playerNum = 0;
+var playerList = document.getElementById('playerList');
+var playerHeader = document.getElementById('playerHeader');
 
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub toe?');
@@ -28,6 +31,7 @@ getPlayerNamesFromLocalStorage();
 // adding players names to the voting list
 
 function votingListForPlayers() {
+  playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
   var labels = document.getElementsByClassName('player');
   for (var i = 0; i < playerArray.length; i++) {
     labels[i].textContent = playerArray[i].name;
@@ -49,7 +53,6 @@ function render() {
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
-render();
 
 // random number generator
 function generateRandom () {
@@ -57,3 +60,35 @@ function generateRandom () {
 }
 render();
 
+function votingEvent (event) {
+
+  event.preventDefault();
+  playerNum += 1;
+  if (playerNum === playerArray.length) {
+    playerNum = 0;
+    playerList.removeEventListener('submit', votingEvent);
+    playerList.style.display = 'none';
+    // generateChart();
+    // Results!!!!
+  }
+
+  var votingArray = [];
+  votingArray.push(event.target.player1.checked);
+  votingArray.push(event.target.player2.checked);
+  votingArray.push(event.target.player3.checked);
+  votingArray.push(event.target.player4.checked);
+
+
+  for(var i = 0; i < playerArray.length; i ++) {
+    if (votingArray[i]) {
+      playerArray[i].vote += 1;
+      playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
+      event.target.reset();
+      return;
+    }
+  }
+
+  event.target.reset();
+}
+
+playerList.addEventListener('submit', votingEvent);

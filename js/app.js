@@ -10,6 +10,7 @@ function Player (name, id) {
   this.id = id;
   this.vote = 0;
   this.cardWon = [];
+  this.win = 0;
   playerArray.push(this);
 }
 
