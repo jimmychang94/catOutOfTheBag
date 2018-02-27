@@ -6,13 +6,25 @@ body {
 header {
   background: #333;
   height: 200px;
-  text-align: center;
   font-size: 30px;
+  width: 960px;
+  margin: 0px auto 0px auto;
 }
 
 header h1 {
-  width: 40%;
+  width: 50%;
   margin: 0px auto 0px auto;
+  float: right;
+  padding-right: 20px;
+  border: 3px solid black;
+  height: 100px;
+}
+
+#logo {
+  height: 150px;
+  width: 150px;
+  float: left;
+  margin-left: 20px;
 }
 
  li {
