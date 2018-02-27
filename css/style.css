@@ -1,15 +1,14 @@
 body {
   background-image: url(../img/pokerBackground.jpg);
   font-family: 'Mukta Mahee', sans-serif;
-  width: 100vw;
-  height: 100vh;
+  height: auto;
 }
 
 header {
   background: #333;
-  height: 200px;
-  font-size: 30px;
-  width: 960px;
+  height: 150px;
+  font-size: 20px;
+  width: 70%;
   margin: 0px auto 0px auto;
 }
 
@@ -17,24 +16,25 @@ header h1 {
   width: 60%;
   margin: 0px auto 0px auto;
   float: right;
-  height: 100px;
+  height: 70px;
 }
 
 #logo {
   height: 150px;
   width: 150px;
   float: left;
-  margin-left: 20px;
+  margin: 0px 0px 0px 20px;
 }
 
 ul {
   float: right;
+  margin: 0;
 }
 
  li {
   display: inline;
-  font-size: 30px;
-  margin: 20px;
+  font-size: 20px;
+  margin: 10px;
   padding: 5px;
   border: 5px solid black;
 }
@@ -82,4 +82,10 @@ button:hover {
 
 main h2 {
   text-align: center;
+}
+
+#playerWinsChart {
+  display: none;
+  margin: 20px auto;
+  background-color: whitesmoke;
 }

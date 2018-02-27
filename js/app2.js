@@ -7,6 +7,7 @@ var randomCard = [];
 var playerNum = 0;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
+var cardContainer = document.getElementById('cardContainer');
 var endGame = 2;
 
 //creating card objects using Card constructor
@@ -56,7 +57,6 @@ function render() {
 
   var rand = randomCard.shift();
   // console.log(rand, 'random card that got shifted out');
-  var cardContainer = document.getElementById('cardContainer');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
@@ -197,7 +197,7 @@ function drawBarGraph() {
       scales: {
         yAxes: [{
           ticks: {
-            max: 10,
+            max: 5,
             min: 0,
             stepSize: 1.0
           }
