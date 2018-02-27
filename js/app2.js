@@ -39,6 +39,7 @@ function votingListForPlayers() {
 }
 votingListForPlayers();
 
+var pEl = document.createElement('p');
 function render() {
   while(randomCard.length < 2) {
     var randomNum = generateRandom();
@@ -49,7 +50,6 @@ function render() {
 
   var rand = randomCard.shift();
   var cardContainer = document.getElementById('cardContainer');
-  var pEl = document.createElement('p');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
@@ -70,6 +70,14 @@ function votingEvent (event) {
     playerList.style.display = 'none';
     // generateChart();
     // Results!!!!
+  }
+
+  if(false) {
+    // For the new card
+    pEl.textContent = '';
+    render();
+    playerList.style.display = 'block';
+    playerList.addEventListener('submit', votingEvent);
   }
 
   var votingArray = [];
