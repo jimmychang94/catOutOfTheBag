@@ -5,7 +5,7 @@ var playerArray = [];
 var cardArray = [];
 var randomCard = [];
 var playerNum = 0;
-var playerWin = null;
+var playerWin = [];
 var endGame = 2;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
@@ -67,12 +67,17 @@ function clearVotes () {
 // Finds who has the most votes and also the end game results
 function winner () {
   var voteArray = [];
+  playerWin = [];
   for (var i = 0; i < playerArray.length; i ++) {
     voteArray.push(playerArray[i].vote);
   }
   var largestNum = Math.max(...voteArray);
-  playerWin = voteArray.indexOf(largestNum);
-  playerArray[playerWin].win += 1;
+  for (var j = 0; j < playerArray.length; j ++) {
+    if (playerArray[j].vote === largestNum) {
+      playerArray[j].win += 1;
+      playerWin.push(playerArray[j].name);
+    }
+  }
   //game over
   for (i = 0; i < playerArray.length; i++) {
     if (playerArray[i].win > endGame) {
@@ -112,13 +117,21 @@ function playerNames() {
 function nextCard () {
   if (playerNum === playerArray.length) {
     winner();
-    clearVotes();
     playerNum = 0;
-
     // For the new card
     pEl.textContent = '';
     render();
-    playerHeader.textContent = playerArray[playerWin].name + ' won the last round! ' + playerArray[playerNum].name + ' please vote!';
+    var playerWinners = '';
+    for (var i = 0; i < playerWin.length; i ++) {
+      if (i === playerWin.length - 1) {
+        playerWinners = playerWinners + ' and ' + playerWin[i];
+      } else {
+        playerWinners = playerWinners + playerWin[i] + ', ';
+      }
+      console.log(playerWinners);
+    }
+    playerHeader.textContent = playerWinners + ' won the last round! ' + playerArray[playerNum].name + ' please vote!';
+    clearVotes();
   }
 
 }
