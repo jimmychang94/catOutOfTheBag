@@ -17,8 +17,9 @@ header {
 header h1 {
   position: absolute;
   color: #FFF;
-  width: 45vw;
-  margin: 5vh 13vw;
+  width: 25vw;
+  margin-top: 5vh;
+  margin-left: 13vw;
   font-size: 3vw;
 }
 
@@ -36,7 +37,7 @@ ul {
   padding: 5px;
 }
 
- ul li {
+ul li {
   display: inline;
   font-size: 1.1vw;
   margin: .6vh .4vw;
@@ -50,7 +51,7 @@ ul li:hover {
 }
 
 .aboutUs {
-  width: 500px;
+  width: 550px;
   height: 240px;
   font-size: 18px;
   margin: 5vh auto;
