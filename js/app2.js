@@ -12,8 +12,7 @@ var newGame = document.getElementById('newGame');
 var endGame = 0;
 
 //creating card objects using Card constructor
-
-new Card('card1', 'Who is most likely to stub toe?');
+new Card('card1', 'Who is most likely to stub a toe?');
 new Card('card2', 'Who is most likely to sleep with a teddy bear?');
 new Card('card3', 'Who is most likely to live a secrect life?');
 new Card('card4', 'Who is the best dancer?');
@@ -25,10 +24,10 @@ new Card('card8', 'Eats peanut butter, pickles, and mayo sandwiches?');
 new Card('card9', 'Who likes Justin Biebers music?');
 new Card('card10', 'Who is most like Ozzy Osborne?');
 new Card('card11', 'Who acts most like a daredevil?');
-new Card('card12', 'Most likely to get tattoo?');
+new Card('card12', 'Most likely to get a tattoo?');
 new Card('card13', 'Who steals candy from babies?');
 new Card('card14', 'Most addictied to their phone?');
-new Card('card15', 'Who has expensive taste in clothes?');
+new Card('card15', 'Who has expensive tastes in clothes?');
 new Card('card16', 'Uses FaceBook the most?');
 new Card('card17', 'Person that hates their job the most?');
 new Card('card18', 'Who watches Keeping Up With The Kardashians?');
