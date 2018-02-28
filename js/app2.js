@@ -6,7 +6,7 @@ var cardArray = [];
 var randomCard = [];
 var playerNum = 0;
 var playerWin = [];
-var endGame = 2;
+var endGame = 0;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
 var cardContainer = document.getElementById('cardContainer');
@@ -123,7 +123,9 @@ function nextCard () {
     render();
     var playerWinners = '';
     for (var i = 0; i < playerWin.length; i ++) {
-      if (i === playerWin.length - 1) {
+      if (playerWin.length === 1) {
+        playerWinners = playerWin[i];
+      } else if (i === playerWin.length - 1) {
         playerWinners = playerWinners + ' and ' + playerWin[i];
       } else {
         playerWinners = playerWinners + playerWin[i] + ', ';
@@ -218,14 +220,14 @@ new Card('card4', 'Who is the best dancer?');
 new Card('card5', 'Most likely to be famous?');
 new Card('card6', 'Looks most like a celebirty?');
 new Card('card7', 'Who likes to talk the most?');
-new Card('card8', 'Who was populair in elementary?');
+new Card('card8', 'Who was popular in elementary?');
 new Card('card8', 'Eats peanut butter, pickles, and mayo sandwiches?');
 new Card('card9', 'Who likes Justin Biebers music?');
 new Card('card10', 'Who is most like Ozzy Osborne?');
 new Card('card11', 'Who acts most like a daredevil?');
 new Card('card12', 'Most likely to get a tattoo?');
 new Card('card13', 'Who steals candy from babies?');
-new Card('card14', 'Most addictied to their phone?');
+new Card('card14', 'Most addicted to their phone?');
 new Card('card15', 'Who has expensive tastes in clothes?');
 new Card('card16', 'Uses FaceBook the most?');
 new Card('card17', 'Person that hates their job the most?');
