@@ -12,6 +12,7 @@ var newGame = document.getElementById('newGame');
 var endGame = 0;
 
 //creating card objects using Card constructor
+
 new Card('card1', 'Who is most likely to stub toe?');
 new Card('card2', 'Who is most likely to sleep with a teddy bear?');
 new Card('card3', 'Who is most likely to live a secrect life?');
@@ -20,7 +21,7 @@ new Card('card5', 'Most likely to be famous?');
 new Card('card6', 'Looks most like a celebirty?');
 new Card('card7', 'Who likes to talk the most?');
 new Card('card8', 'Who was populair in elementary?');
-new Card('card8', 'Eats peanut butter, pickles, and mayo sandwhiches?');
+new Card('card8', 'Eats peanut butter, pickles, and mayo sandwiches?');
 new Card('card9', 'Who likes Justin Biebers music?');
 new Card('card10', 'Who is most like Ozzy Osborne?');
 new Card('card11', 'Who acts most like a daredevil?');
@@ -35,7 +36,7 @@ new Card('card19', 'Most prepared for zombie apocalypse?');
 new Card('card20', 'Who is the funniest?');
 new Card('card21', 'Who has all their money in BitCoin?');
 
-//constructors
+//constructor for the cards
 
 function Card (name, content) {
   this.name = name;
@@ -44,6 +45,8 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
+// gets players names from local storage and parse them
+
 function getPlayerNamesFromLocalStorage() {
   var playerArrayRetrieved = localStorage.getItem('playerArray');
   playerArray = JSON.parse(playerArrayRetrieved);
@@ -51,7 +54,7 @@ function getPlayerNamesFromLocalStorage() {
 
 getPlayerNamesFromLocalStorage();
 
-// adding players names to the voting list
+// adding players names to the form and switches username after every vote
 
 function votingListForPlayers() {
   playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
@@ -63,6 +66,7 @@ function votingListForPlayers() {
 votingListForPlayers();
 
 var pEl = document.createElement('p');
+
 function render() {
   while(randomCard.length < cardArray.length) {
     var randomNum = generateRandom();
@@ -72,16 +76,18 @@ function render() {
   }
 
   var rand = randomCard.shift();
-  // console.log(rand, 'random card that got shifted out');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
 
 // random number generator
+
 function generateRandom () {
   return Math.floor(Math.random() * cardArray.length);
 }
 render();
+
+// clears votes
 
 function clearVotes () {
   for (var i = 0; i < playerArray.length; i ++) {
@@ -90,6 +96,7 @@ function clearVotes () {
 }
 
 // Finds who has the most votes
+
 var playerWin = null;
 function winner () {
   var voteArray = [];
@@ -110,11 +117,10 @@ function winner () {
       newGame.style.display = 'block';
       return;
     }
-
   }
 }
 
-// finds the number of wins
+// finds the number of wins and pushes them into the winArray[]
 
 function numberOfWins() {
   var winArray = [];
@@ -123,6 +129,8 @@ function numberOfWins() {
   }
   return winArray;
 }
+
+// takes players names and pushes them into the nameArray[]
 
 function playerNames() {
   var nameArray = [];
@@ -133,6 +141,7 @@ function playerNames() {
 }
 
 // This checks to see if everyone has voted and then gives the next array
+
 function nextCard () {
   if (playerNum === playerArray.length) {
     winner();
