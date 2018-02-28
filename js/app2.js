@@ -6,7 +6,7 @@ var cardArray = [];
 var randomCard = [];
 var playerNum = 0;
 var playerWin = null;
-var endGame = 2;
+var endGame = 0;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
 var cardContainer = document.getElementById('cardContainer');
@@ -74,6 +74,8 @@ function winner () {
   //game over
   for (i = 0; i < playerArray.length; i++) {
     if (playerArray[i].win > endGame) {
+      var declaredWinner = document.getElementById('winnerName');
+      declaredWinner.textContent = playerArray[i].name + ' is the WINNER!!!';
       playerList.removeEventListener('submit', votingEvent);
       playerList.style.display = 'none';
       cardContainer.style.display = 'none';
