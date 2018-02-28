@@ -13,7 +13,7 @@ var cardContainer = document.getElementById('cardContainer');
 var newGame = document.getElementById('newGame');
 var pEl = document.createElement('p');
 
-//constructors
+//constructor for the cards
 function Card (name, content) {
   this.name = name;
   this.content = content;
@@ -21,13 +21,13 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
-// This gets the player object out of storage
+// gets players names from local storage and parse them
 function getPlayerNamesFromLocalStorage() {
   var playerArrayRetrieved = localStorage.getItem('playerArray');
   playerArray = JSON.parse(playerArrayRetrieved);
 }
 
-// adding players names to the voting list
+// adding players names to the form and switches username after every vote
 function votingListForPlayers() {
   playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
   var labels = document.getElementsByClassName('player');
@@ -46,7 +46,6 @@ function render() {
   }
 
   var rand = randomCard.shift();
-  // console.log(rand, 'random card that got shifted out');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
@@ -83,11 +82,10 @@ function winner () {
       newGame.style.display = 'block';
       return;
     }
-
   }
 }
 
-// finds the number of wins
+// finds the number of wins and pushes them into the winArray[]
 function numberOfWins() {
   var winArray = [];
   for (var i = 0; i < playerArray.length; i++) {
@@ -96,7 +94,7 @@ function numberOfWins() {
   return winArray;
 }
 
-// Returns an array holding the names of the players
+// takes players names and pushes them into the nameArray[]
 function playerNames() {
   var nameArray = [];
   for (var i = 0; i < playerArray.length; i ++) {
@@ -106,6 +104,7 @@ function playerNames() {
 }
 
 // This checks to see if everyone has voted and then gives the next array
+
 function nextCard () {
   if (playerNum === playerArray.length) {
     winner();

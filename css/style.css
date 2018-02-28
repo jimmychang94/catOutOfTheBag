@@ -3,6 +3,19 @@ body {
   font-family: 'Mukta Mahee', sans-serif;
   height: auto;
 }
+.aboutUs {
+  width: 500px;
+  height: 240px;
+  font-size: 18px;
+  margin-left: 30vw;
+
+}
+
+.aboutUs img {
+  height: 200px;
+  float: left;
+  margin-right: 50px;
+}
 
 header {
   background: #333;
@@ -31,7 +44,7 @@ ul {
   margin: 0;
 }
 
- li {
+ ul li {
   display: inline;
   font-size: 20px;
   margin: 10px;
@@ -39,12 +52,12 @@ ul {
   border: 5px solid black;
 }
 
-img {
+#hero {
   display: block;
  margin: 20px auto 0px auto;
 }
 
-#bigButton {
+.bigButton {
   width: 50%;
   height: 100px;
   font-size: 30px;
@@ -98,3 +111,15 @@ main h2 {
 #newGame button {
   padding: 20px 30px;
 }
+
+h2 {
+  margin: 0px auto;
+  text-align: center;
+}
+
+ol {
+  margin: 0px auto;
+  width: 70%;
+  font-size: 20px;
+}
+
