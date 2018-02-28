@@ -8,9 +8,8 @@ body {
 header {
   background: #000;
   position: relative;
-  height: 150px;
-  font-size: 20px;
-  width: 60%;
+  height: 10vw;
+  width: 60vw;
   margin: 0px auto 0px auto;
   border: 3px solid #000;
 }
@@ -18,31 +17,29 @@ header {
 header h1 {
   position: absolute;
   color: #FFF;
-  width: 50%;
-  margin: 2vh 12vw;
-  height: 70px;
+  width: 45vw;
+  margin: 5vh 13vw;
   font-size: 3vw;
 }
 
 #logo {
   position: absolute;
-  height: auto;
-  width: 7.5vw;
+  width: 10vw;
   float: left;
-  margin: .4em;
+  margin: .5vw;
   border: 5px solid #FFF;
 }
 
 ul {
-  margin-top: 5vh;
+  margin-top:7vh;
   float: right;
   padding: 5px;
 }
 
  ul li {
   display: inline;
-  font-size: 20px;
-  margin: 10px;
+  font-size: 1.1vw;
+  margin: .6vh .4vw;
   padding: 10px;
   background-color: #000;
   border: 5px solid #FFF;
