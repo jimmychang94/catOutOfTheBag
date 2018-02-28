@@ -35,7 +35,7 @@ new Card('card19', 'Most prepared for zombie apocalypse?');
 new Card('card20', 'Who is the funniest?');
 new Card('card21', 'Who has all their money in BitCoin?');
 
-//constructors
+//constructor for the cards
 
 function Card (name, content) {
   this.name = name;
@@ -44,6 +44,8 @@ function Card (name, content) {
   cardArray.push(this);
 }
 
+// gets players names from local storage and parse them
+
 function getPlayerNamesFromLocalStorage() {
   var playerArrayRetrieved = localStorage.getItem('playerArray');
   playerArray = JSON.parse(playerArrayRetrieved);
@@ -51,7 +53,7 @@ function getPlayerNamesFromLocalStorage() {
 
 getPlayerNamesFromLocalStorage();
 
-// adding players names to the voting list
+// adding players names to the form and switches username after every vote
 
 function votingListForPlayers() {
   playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
@@ -63,6 +65,7 @@ function votingListForPlayers() {
 votingListForPlayers();
 
 var pEl = document.createElement('p');
+
 function render() {
   while(randomCard.length < cardArray.length) {
     var randomNum = generateRandom();
@@ -72,16 +75,18 @@ function render() {
   }
 
   var rand = randomCard.shift();
-  // console.log(rand, 'random card that got shifted out');
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
 }
 
 // random number generator
+
 function generateRandom () {
   return Math.floor(Math.random() * cardArray.length);
 }
 render();
+
+// clears votes
 
 function clearVotes () {
   for (var i = 0; i < playerArray.length; i ++) {
@@ -90,6 +95,7 @@ function clearVotes () {
 }
 
 // Finds who has the most votes
+
 var playerWin = null;
 function winner () {
   var voteArray = [];
@@ -110,11 +116,10 @@ function winner () {
       newGame.style.display = 'block';
       return;
     }
-
   }
 }
 
-// finds the number of wins
+// finds the number of wins and pushes them into the winArray[]
 
 function numberOfWins() {
   var winArray = [];
@@ -123,6 +128,8 @@ function numberOfWins() {
   }
   return winArray;
 }
+
+// takes players names and pushes them into the nameArray[]
 
 function playerNames() {
   var nameArray = [];
@@ -133,6 +140,7 @@ function playerNames() {
 }
 
 // This checks to see if everyone has voted and then gives the next array
+
 function nextCard () {
   if (playerNum === playerArray.length) {
     winner();
