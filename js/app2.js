@@ -48,6 +48,8 @@ function render() {
   var rand = randomCard.shift();
   pEl.textContent = cardArray[rand].content;
   cardContainer.appendChild(pEl);
+  cardContainer.style.transition = '1s';
+  cardContainer.style.transform = 'rotateY(360deg)';
 }
 
 // random number generator
@@ -141,6 +143,7 @@ function votingEvent (event) {
       playerArray[i].vote += 1;
       if (playerNum < playerArray.length) {
         playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
+        cardContainer.style = '';
       } else {
         nextCard();
       }
