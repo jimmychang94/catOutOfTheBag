@@ -31,13 +31,13 @@ header h1 {
   border: 5px solid #FFF;
 }
 
-ul {
+header ul {
   margin-top:7vh;
   float: right;
   padding: 5px;
 }
 
-ul li {
+header ul li {
   display: inline;
   font-size: 1.1vw;
   margin: .6vh .4vw;
@@ -46,7 +46,7 @@ ul li {
   border: 5px solid #FFF;
 }
 
-ul li:hover {
+header ul li:hover {
   background-color: blue;
 }
 
@@ -174,4 +174,17 @@ ol {
 a {
   text-decoration: none;
   color: #FFF;
+}
+
+#cardList {
+  margin: 0px auto 50px auto;
+}
+#cardList h2 {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+#cardList li {
+  width: 60%;
+  margin: 5px auto;
 }
