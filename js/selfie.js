@@ -36,7 +36,8 @@
 
     var img = document.createElement('img');
     img.setAttribute('src', imageURL);
-    console.log();
+		console.log();
+		
     selfies.appendChild(img);
   }
   window.addEventListener('load', startup);

@@ -87,6 +87,8 @@ var selfiePic = '';
 		console.log();
 		selfiePic = imageURL;
     selfies.appendChild(img);
+    var img1 = document.getElementById('img1');
+    img1.src = imageURL;
   }
   window.addEventListener('load', startup);
 })();
