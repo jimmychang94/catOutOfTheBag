@@ -32,6 +32,8 @@ function votingListForPlayers() {
   playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
   var labels = document.getElementsByClassName('player');
   for (var i = 0; i < playerArray.length; i++) {
+    var imgEl = document.getElementById('img' + i);
+    imgEl.src = playerArray[i].filepath;
     labels[i].textContent = playerArray[i].name;
   }
 }
@@ -81,8 +83,25 @@ function winner () {
   //game over
   for (i = 0; i < playerArray.length; i++) {
     if (playerArray[i].win > endGame) {
+      playerWin = [];
+      for (j = 0; j < playerArray.length; j ++) {
+        if (playerArray[j].win > endGame) {
+          playerWin.push(playerArray[j].name);
+        }
+      }
+      var playerWinners = '';
+      for (var k = 0; k < playerWin.length; k ++) {
+        if (playerWin.length === 1) {
+          playerWinners = playerWin[k] + ' is the WINNER!!!';
+        } else if (k === playerWin.length - 1) {
+          playerWinners = playerWinners + ' and ' + playerWin[k] + ' are the WINNERS!!!';
+        } else {
+          playerWinners = playerWinners + playerWin[k] + ', ';
+        }
+      }
+      // playerHeader.textContent = playerWinners + ' won the last round! '
       var declaredWinner = document.getElementById('winnerName');
-      declaredWinner.textContent = playerArray[i].name + ' is the WINNER!!!';
+      declaredWinner.textContent = playerWinners;
       playerList.removeEventListener('submit', votingEvent);
       playerList.style.display = 'none';
       cardContainer.style.display = 'none';
