@@ -4,6 +4,7 @@
 var playerArray = [];
 var imageArray = [];
 var randomImage = [];
+var playerIcon = [];
 var playerForm = document.getElementById('playerForm');
 
 //constructors
@@ -13,17 +14,18 @@ function Player (name, id) {
   this.vote = 0;
   this.cardWon = [];
   this.win = 0;
+  this.filepath = '';
   playerArray.push(this);
 }
 
-function ImageGenerator (id, src) {
+function ImageGenerator (id, filepath) {
   this.id = id;
-  this.src = src;
+  this.filepath = filepath;
   imageArray.push(this);
 }
 
 function generateRandom () {
-  Math.floor(Math.random() * imageArray.length);
+  return Math.floor(Math.random() * imageArray.length);
 }
 
 function render() {
@@ -33,13 +35,12 @@ function render() {
       randomImage.push(randomNum);
     }
   }
-
-  var rand = randomImage.shift();
-  var imgEl = document.getElementById(imageArray[rand].id)
-  pEl.textContent = imageArray[rand].content;
-  cardContainer.appendChild(pEl);
-  cardContainer.style.transition = '1s';
-  cardContainer.style.transform = 'rotateY(360deg)';
+  for (var i = 0; i < 4; i ++) {
+    var rand = randomImage.shift();
+    var imgEl = document.getElementById('img' + i);
+    playerIcon.push(imageArray[rand].filepath);
+    imgEl.src = imageArray[rand].filepath;
+  }
 }
 
 //eventhandler
@@ -77,6 +78,7 @@ function playerEvent(event) {
 
   for (var i = 0; i < nameArray.length; i ++) {
     new Player(nameArray[i], playerIdArray[i]);
+    playerArray[i].filepath = playerIcon[i];
   }
 
   var playerArrayStrigify = JSON.stringify(playerArray);
@@ -89,6 +91,9 @@ function createImageObjects () {
     new ImageGenerator ('icon' + i, 'img/icon' + i + '.png');
   }
 }
+
+createImageObjects();
+render();
 
 //adding event listener
 playerForm.addEventListener('submit', playerEvent);

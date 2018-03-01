@@ -32,6 +32,8 @@ function votingListForPlayers() {
   playerHeader.textContent = playerArray[playerNum].name + ', please vote!';
   var labels = document.getElementsByClassName('player');
   for (var i = 0; i < playerArray.length; i++) {
+    var imgEl = document.getElementById('img' + i);
+    imgEl.src = playerArray[i].filepath;
     labels[i].textContent = playerArray[i].name;
   }
 }
