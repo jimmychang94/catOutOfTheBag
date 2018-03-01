@@ -63,8 +63,8 @@ var selfiePic = [];
     imageProcessor = document.getElementById('image-processor');
     selfies = document.getElementById('selfies');
 
-    imageProcessor.width = 640;
-    imageProcessor.height = 480;
+    imageProcessor.width = 320;
+    imageProcessor.height = 240;
 
     navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
 
@@ -87,7 +87,7 @@ var selfiePic = [];
   function takeSelfie() {
     var context = imageProcessor.getContext('2d');
     console.log(selfieCam);
-    context.drawImage(selfieCam, 0, 0, 640, 480);
+    context.drawImage(selfieCam, 0, 0, 320, 240);
     var imageURL = imageProcessor.toDataURL();
 
     var img = document.createElement('img');
