@@ -88,7 +88,7 @@ function winner () {
         if (playerArray[j].win > endGame) {
           playerWin.push(playerArray[j].name);
         }
-      } 
+      }
       var playerWinners = '';
       for (var k = 0; k < playerWin.length; k ++) {
         if (playerWin.length === 1) {
