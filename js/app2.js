@@ -6,7 +6,7 @@ var cardArray = [];
 var randomCard = [];
 var playerNum = 0;
 var playerWin = [];
-var endGame = 0;
+var endGame = 2;
 var playerList = document.getElementById('playerList');
 var playerHeader = document.getElementById('playerHeader');
 var cardContainer = document.getElementById('cardContainer');
@@ -82,10 +82,10 @@ function winner () {
   }
   //game over
   for (i = 0; i < playerArray.length; i++) {
-    if (playerArray[i].win > endGame) {
+    if (playerArray[i].win === endGame) {
       playerWin = [];
       for (j = 0; j < playerArray.length; j ++) {
-        if (playerArray[j].win > endGame) {
+        if (playerArray[j].win === endGame) {
           playerWin.push(playerArray[j].name);
         }
       }
