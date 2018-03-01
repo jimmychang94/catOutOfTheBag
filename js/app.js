@@ -6,16 +6,19 @@ var imageArray = [];
 var randomImage = [];
 var playerIcon = [];
 var playerForm = document.getElementById('playerForm');
+var selfiePicArray =[];
 
 //constructors
-function Player (name, id) {
+function Player (name, id, selfieLogo) {
   this.name = name;
   this.id = id;
   this.vote = 0;
   this.cardWon = [];
   this.win = 0;
   this.filepath = '';
+  this.selfieLogo = selfieLogo;
   playerArray.push(this);
+  
 }
 
 function ImageGenerator (id, filepath) {
@@ -38,15 +41,19 @@ function render() {
   for (var i = 0; i < 4; i ++) {
     var rand = randomImage.shift();
     var imgEl = document.getElementById('img' + i);
-    playerIcon.push(imageArray[rand].filepath);
+    
     // imgEl.src = imageArray[rand].filepath;
     imgEl.src = selfiePic;
   }
 }
+function renderSelfie() {
+  var imgEl = document.getElementById('img0');
+  playerIcon.push(imageArray[0].filepath);
+}
 
 // Selfie
 
-var selfiePic = '';
+var selfiePic = [];
 (function() {
   var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton;
   function startup(){
@@ -87,8 +94,10 @@ var selfiePic = '';
 		console.log();
 		selfiePic = imageURL;
     selfies.appendChild(img);
-    var img1 = document.getElementById('img1');
-    img1.src = imageURL;
+    var img0 = document.getElementById('img0');
+    img0.src = imageURL;
+    playerArray[0].selfieLogo = imageURL;
+    selfiePicArray.push(imageURL)
   }
   window.addEventListener('load', startup);
 })();
@@ -130,9 +139,9 @@ function playerEvent(event) {
   }
 
   for (var i = 0; i < nameArray.length; i ++) {
-    new Player(nameArray[i], playerIdArray[i]);
+    new Player(nameArray[i], playerIdArray[i], selfiePicArray[i]);
     playerArray[i].filepath = playerIcon[i];
-    playerArray[i].filepath = selfiePic;
+    playerArray[i].selfieLogo = selfiePicArray[i];
   }
 
   var playerArrayStrigify = JSON.stringify(playerArray);
