@@ -67,6 +67,9 @@ header ul li:hover {
   margin-right: 50px;
 }
 
+#picture {
+  margin-bottom: 100px;
+}
 
 #hero {
   display: block;
