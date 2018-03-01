@@ -39,7 +39,8 @@ function render() {
     var rand = randomImage.shift();
     var imgEl = document.getElementById('img' + i);
     playerIcon.push(imageArray[rand].filepath);
-    imgEl.src = imageArray[rand].filepath;
+    // imgEl.src = imageArray[rand].filepath;
+    imgEl.src = selfiePic;
   }
 }
 
