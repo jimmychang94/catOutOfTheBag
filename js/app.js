@@ -2,6 +2,8 @@
 
 //global variables
 var playerArray = [];
+var imageArray = [];
+var randomImage = [];
 var playerForm = document.getElementById('playerForm');
 
 //constructors
@@ -12,6 +14,32 @@ function Player (name, id) {
   this.cardWon = [];
   this.win = 0;
   playerArray.push(this);
+}
+
+function ImageGenerator (id, src) {
+  this.id = id;
+  this.src = src;
+  imageArray.push(this);
+}
+
+function generateRandom () {
+  Math.floor(Math.random() * imageArray.length);
+}
+
+function render() {
+  while(randomImage.length < 4) {
+    var randomNum = generateRandom();
+    while(!randomImage.includes(randomNum)) {
+      randomImage.push(randomNum);
+    }
+  }
+
+  var rand = randomImage.shift();
+  var imgEl = document.getElementById(imageArray[rand].id)
+  pEl.textContent = imageArray[rand].content;
+  cardContainer.appendChild(pEl);
+  cardContainer.style.transition = '1s';
+  cardContainer.style.transform = 'rotateY(360deg)';
 }
 
 //eventhandler
@@ -54,6 +82,12 @@ function playerEvent(event) {
   var playerArrayStrigify = JSON.stringify(playerArray);
   localStorage.setItem('playerArray', playerArrayStrigify);
   window.location.href = 'game.html';
+}
+
+function createImageObjects () {
+  for (var i = 1; i < 10; i ++) {
+    new ImageGenerator ('icon' + i, 'img/icon' + i + '.png');
+  }
 }
 
 //adding event listener
