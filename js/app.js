@@ -129,7 +129,7 @@ function playerEvent(event) {
   for (var i = 0; i < nameArray.length; i ++) {
     new Player(nameArray[i], playerIdArray[i]);
     playerArray[i].filepath = playerIcon[i];
-
+    playerArray[i].filepath = selfiePic;
   }
 
   var playerArrayStrigify = JSON.stringify(playerArray);
