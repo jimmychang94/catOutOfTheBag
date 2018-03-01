@@ -35,6 +35,13 @@ function playerEvent(event) {
   playerIdArray.push(event.target.player3.name);
   playerIdArray.push(event.target.player4.name);
 
+  // for(var i = 0; i < nameArray.length; i ++) {
+  //   if (nameArray[i] === '') {
+  //     nameArray.splice(i, 1);
+  //     playerIdArray.splice(i, 1);
+  //   }
+  // }
+
   if (nameArray.includes('')) {
     alert('Please include all player names!');
     return;
