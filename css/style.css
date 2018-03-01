@@ -188,3 +188,7 @@ a {
   width: 60%;
   margin: 5px auto;
 }
+
+#selfie-cam, #image-processor {
+  border:3px dotted black;
+}
