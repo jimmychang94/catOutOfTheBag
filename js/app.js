@@ -43,8 +43,7 @@ function render() {
     var rand = randomImage.shift();
     var imgEl = document.getElementById('img' + i);
     
-    // imgEl.src = imageArray[rand].filepath;
-    imgEl.src = selfiePic;
+   
   }
 }
 function renderSelfie() {
@@ -56,10 +55,16 @@ function renderSelfie() {
 
 var selfiePic = [];
 (function() {
-  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton;
+  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton, takeSelfieButton1, takeSelfieButton2, takeSelfieButton3, takeSelfieButton4;
   function startup(){
     selfieCam = document.getElementById('selfie-cam');
-    takeSelfieButton = document.getElementsByClassName('takeSelfieButton'),
+
+    takeSelfieButton = document.getElementById('takeSelfieButton'),
+    takeSelfieButton1 = document.getElementById('takeSelfieButton1'),
+    takeSelfieButton2 = document.getElementById('takeSelfieButton2'),
+    takeSelfieButton3 = document.getElementById('takeSelfieButton3'),
+    takeSelfieButton4 = document.getElementById('takeSelfieButton4'),
+
     imageProcessor = document.getElementById('image-processor');
     selfies = document.getElementById('selfies');
 
@@ -83,6 +88,10 @@ var selfiePic = [];
     }
 
     takeSelfieButton.addEventListener('click', takeSelfie);
+    takeSelfieButton1.addEventListener('click', takeSelfie);
+    takeSelfieButton2.addEventListener('click', takeSelfie);
+    takeSelfieButton3.addEventListener('click', takeSelfie);
+    takeSelfieButton4.addEventListener('click', takeSelfie);
   }
   function takeSelfie() {
     var context = imageProcessor.getContext('2d');
@@ -95,8 +104,8 @@ var selfiePic = [];
 		console.log();
 		selfiePic = imageURL;
     selfies.appendChild(img);
-    var img0 = document.getElementById('img0');
-    img0.src = imageURL;
+    
+    
     
     selfiePicArray.push(imageURL)
   }
