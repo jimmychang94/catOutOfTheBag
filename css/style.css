@@ -4,8 +4,17 @@ body {
   height: auto;
   color: #FFF;
 }
-img {
-  width: 40px;
+#img0, #img1, #img2, #img3 {
+  width: 50px;
+
+}
+#selfie-cam {
+  position:fixed;
+  right: 0;
+  bottom:0;
+  margin:0;
+  padding:0;
+
 }
 header {
   background: #000;
