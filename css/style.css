@@ -4,7 +4,9 @@ body {
   height: auto;
   color: #FFF;
 }
-
+img {
+  width: 25px;
+}
 header {
   background: #000;
   position: relative;

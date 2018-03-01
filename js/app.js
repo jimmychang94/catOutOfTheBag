@@ -7,16 +7,17 @@ var randomImage = [];
 var playerIcon = [];
 var playerForm = document.getElementById('playerForm');
 var selfiePicArray =[];
+var selfieLogo = '';
 
 //constructors
-function Player (name, id, selfieLogo) {
+function Player (name, id) {
   this.name = name;
   this.id = id;
   this.vote = 0;
   this.cardWon = [];
   this.win = 0;
   this.filepath = '';
-  this.selfieLogo = selfieLogo;
+  this.selfieLogo = '';
   playerArray.push(this);
   
 }
@@ -96,7 +97,7 @@ var selfiePic = [];
     selfies.appendChild(img);
     var img0 = document.getElementById('img0');
     img0.src = imageURL;
-    playerArray[0].selfieLogo = imageURL;
+    
     selfiePicArray.push(imageURL)
   }
   window.addEventListener('load', startup);
