@@ -6,7 +6,9 @@ var playerArray = [];
 var imageArray = [];
 var randomImage = [];
 var playerIcon = [];
+var selfiePic = [];
 var playerForm = document.getElementById('playerForm');
+var showCam = document.getElementById('showCam');
 var selfiePicArray =['', '', '', ''];
 var selfieLogo = '';
 
@@ -47,14 +49,13 @@ function render() {
    imgEl.src = selfiePicArray[i];
   }
 }
+
 function renderSelfie() {
   var imgEl = document.getElementById('img0');
   playerIcon.push(imageArray[0].filepath);
 }
 
 // Selfie
-
-var selfiePic = [];
 (function() {
   var selfieCam, takeSelfie, imageProcessor, takeSelfieButton, selfieButts;
   function startup(){
@@ -163,8 +164,18 @@ function createImageObjects () {
   }
 }
 
+function showCamera(event) {
+  var selfieCam = document.getElementById('selfie-cam');
+  if (selfieCam.style.display === 'none') {
+    selfieCam.style.display = 'block';
+  } else {
+    selfieCam.style.display = 'none';
+  }
+}
+
 createImageObjects();
 render();
 
 //adding event listener
+showCam.addEventListener('click', showCamera);
 playerForm.addEventListener('submit', playerEvent);
