@@ -104,7 +104,7 @@ var selfiePic = [];
     selfies.appendChild(img);
     
     selfiePicArray[index] = imageURL
-    
+    document.getElementById('img' + index).src = imageURL
     
   }
   window.addEventListener('load', startup);
