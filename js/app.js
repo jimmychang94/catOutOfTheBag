@@ -106,7 +106,7 @@ var selfiePic = [];
     var canvas = document.getElementById('image-processor');
     canvas.style.display = 'none';
   }
-  window.addEventListener('load', startup);
+  
 })();
 
 
@@ -167,3 +167,4 @@ render();
 
 //adding event listener
 playerForm.addEventListener('submit', playerEvent);
+window.addEventListener('load', startup);
