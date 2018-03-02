@@ -104,9 +104,9 @@ var selfiePic = [];
     selfiePicArray[index] = imageURL
     document.getElementById('img' + index).src = imageURL
     var canvas = document.getElementById('image-processor');
-    canvas.style.display = 'none';
+    canvas.style.display = 'none'
   }
-  
+  window.addEventListener('load', startup);
 })();
 
 
@@ -167,4 +167,3 @@ render();
 
 //adding event listener
 playerForm.addEventListener('submit', playerEvent);
-window.addEventListener('load', startup);
