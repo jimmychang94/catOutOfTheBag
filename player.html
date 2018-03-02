@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,22 +29,28 @@
       <fieldset>
         <img id="img0" src="">
         <label for="player1">Player 1:</label>
+        <button class = "selfieButt" id = "0" type="button">Selfie Icon</button>
         <input name="player1" type="text" maxlength="15">
         <img id="img1" src="">
         <label for="player2">Player 2:</label>
+        <button class = "selfieButt" id = "1" type="button">Selfie Icon</button>
         <input name="player2" type="text" maxlength="15">
         <img id="img2" src="">
         <label for="player3">Player 3:</label>
+        <button class = "selfieButt" id ="2" type="button">Selfie Icon</button>
         <input name="player3" type="text" maxlength="15">
         <img id="img3" src="">
         <label for="player4">Player 4:</label>
+        <button class = "selfieButt" id ="3" type="button">Selfie Icon</button>
         <input name="player4" type="text" maxlength="15">
-        <button type="submit">Submit</button>
+        <button id ="submitButt" type="submit">Submit</button>
       </fieldset>
     </form> 
+    
+    <video id="selfie-cam"></video>
+    <canvas id ="image-processor"></canvas>
   </main>
-
-
-  <script src="js/app.js"></script>
+    <script src="js/selfie.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
