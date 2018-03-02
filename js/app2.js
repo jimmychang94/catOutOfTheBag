@@ -33,7 +33,7 @@ function votingListForPlayers() {
   var labels = document.getElementsByClassName('player');
   for (var i = 0; i < playerArray.length; i++) {
     var imgEl = document.getElementById('img' + i);
-    imgEl.src = playerArray[i].filepath;
+    imgEl.src = playerArray[i].selfieLogo;
     labels[i].textContent = playerArray[i].name;
   }
 }

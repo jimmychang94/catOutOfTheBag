@@ -1,3 +1,4 @@
+
 'use strict';
 
 //global variables
@@ -6,6 +7,8 @@ var imageArray = [];
 var randomImage = [];
 var playerIcon = [];
 var playerForm = document.getElementById('playerForm');
+var selfiePicArray =['', '', '', ''];
+var selfieLogo = '';
 
 //constructors
 function Player (name, id) {
@@ -15,7 +18,9 @@ function Player (name, id) {
   this.cardWon = [];
   this.win = 0;
   this.filepath = '';
+  this.selfieLogo = '';
   playerArray.push(this);
+  
 }
 
 function ImageGenerator (id, filepath) {
@@ -38,10 +43,75 @@ function render() {
   for (var i = 0; i < 4; i ++) {
     var rand = randomImage.shift();
     var imgEl = document.getElementById('img' + i);
-    playerIcon.push(imageArray[rand].filepath);
-    imgEl.src = imageArray[rand].filepath;
+    selfiePicArray[i] = imageArray[rand].filepath
+   imgEl.src = selfiePicArray[i];
   }
 }
+function renderSelfie() {
+  var imgEl = document.getElementById('img0');
+  playerIcon.push(imageArray[0].filepath);
+}
+
+// Selfie
+
+var selfiePic = [];
+(function() {
+  var selfieCam, takeSelfie, imageProcessor, takeSelfieButton, selfieButts;
+  function startup(){
+    selfieCam = document.getElementById('selfie-cam');
+
+    
+    imageProcessor = document.getElementById('image-processor');
+    selfieButts = document.getElementsByClassName('selfieButt')
+
+    imageProcessor.width = 640;
+    imageProcessor.height = 480;
+
+    navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia({
+        video:true,
+        audio:false
+      }, function (stream) {
+        window.URL = window.URL || webkitURL;
+        var streamURL = window.URL.createObjectURL(stream);
+        selfieCam.src = streamURL;
+        selfieCam.play();
+      }, function (error) {
+        console.log(error);
+      });
+    }
+    for (var i = 0; i < selfieButts.length; i++) {
+      selfieButts[i].addEventListener('click', takeSelfie);
+      
+    }
+    takeSelfieButton.addEventListener('click', takeSelfie);
+
+  }
+  function takeSelfie(event) {
+    var index = event.target.id 
+    var context = imageProcessor.getContext('2d');
+    console.log(selfieCam);
+    context.drawImage(selfieCam, 0, 0, 640, 480);
+    var imageURL = imageProcessor.toDataURL();
+
+    var img = document.createElement('img');
+    img.setAttribute('src', imageURL);
+		
+		selfiePic = imageURL;
+    
+    
+    selfiePicArray[index] = imageURL
+    document.getElementById('img' + index).src = imageURL
+    var canvas = document.getElementById('image-processor');
+    canvas.style.display = 'none'
+  }
+  window.addEventListener('load', startup);
+})();
+
+
+
 
 //eventhandler
 function playerEvent(event) {
@@ -77,8 +147,9 @@ function playerEvent(event) {
   }
 
   for (var i = 0; i < nameArray.length; i ++) {
-    new Player(nameArray[i], playerIdArray[i]);
+    new Player(nameArray[i], playerIdArray[i], selfiePicArray[i]);
     playerArray[i].filepath = playerIcon[i];
+    playerArray[i].selfieLogo = selfiePicArray[i];
   }
 
   var playerArrayStrigify = JSON.stringify(playerArray);
