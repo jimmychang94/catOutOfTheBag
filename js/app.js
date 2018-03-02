@@ -6,7 +6,7 @@ var imageArray = [];
 var randomImage = [];
 var playerIcon = [];
 var playerForm = document.getElementById('playerForm');
-var selfiePicArray =[];
+var selfiePicArray =['', '', '', ''];
 var selfieLogo = '';
 
 //constructors
@@ -55,7 +55,7 @@ function renderSelfie() {
 
 var selfiePic = [];
 (function() {
-  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton;
+  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton, selfieButts;
   function startup(){
     selfieCam = document.getElementById('selfie-cam');
 
@@ -63,6 +63,7 @@ var selfiePic = [];
 
     imageProcessor = document.getElementById('image-processor');
     selfies = document.getElementById('selfies');
+    selfieButts = document.getElementsByClassName('selfieButt')
 
     imageProcessor.width = 640;
     imageProcessor.height = 480;
@@ -82,11 +83,15 @@ var selfiePic = [];
         console.log(error);
       });
     }
-
+    for (var i = 0; i < selfieButts.length; i++) {
+      selfieButts[i].addEventListener('click', takeSelfie);
+      
+    }
     takeSelfieButton.addEventListener('click', takeSelfie);
 
   }
-  function takeSelfie() {
+  function takeSelfie(event) {
+    var index = event.target.id 
     var context = imageProcessor.getContext('2d');
     console.log(selfieCam);
     context.drawImage(selfieCam, 0, 0, 640, 480);
@@ -98,9 +103,9 @@ var selfiePic = [];
 		selfiePic = imageURL;
     selfies.appendChild(img);
     
+    selfiePicArray[index] = imageURL
     
     
-    selfiePicArray.push(imageURL)
   }
   window.addEventListener('load', startup);
 })();
