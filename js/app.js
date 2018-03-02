@@ -55,14 +55,13 @@ function renderSelfie() {
 
 var selfiePic = [];
 (function() {
-  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton, selfieButts;
+  var selfieCam, takeSelfie, imageProcessor, takeSelfieButton, selfieButts;
   function startup(){
     selfieCam = document.getElementById('selfie-cam');
 
     takeSelfieButton = document.getElementById('takeSelfieButton'),
 
     imageProcessor = document.getElementById('image-processor');
-    selfies = document.getElementById('selfies');
     selfieButts = document.getElementsByClassName('selfieButt')
 
     imageProcessor.width = 640;
@@ -99,9 +98,9 @@ var selfiePic = [];
 
     var img = document.createElement('img');
     img.setAttribute('src', imageURL);
-		console.log();
+		
 		selfiePic = imageURL;
-    selfies.appendChild(img);
+    
     
     selfiePicArray[index] = imageURL
     document.getElementById('img' + index).src = imageURL
