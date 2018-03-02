@@ -4,7 +4,18 @@ body {
   height: auto;
   color: #FFF;
 }
+#img0, #img1, #img2, #img3 {
+  width: 50px;
 
+}
+#selfie-cam {
+  position:fixed;
+  right: 0;
+  bottom:0;
+  margin:0;
+  padding:0;
+
+}
 header {
   background: #000;
   position: relative;
@@ -117,7 +128,7 @@ button:hover {
 #playerForm {
   width: 40%;
   height: 500px;
-  margin: 0px auto 0px auto;
+  
   font-size: 35px;
 }
 
@@ -190,4 +201,12 @@ a {
 #cardList li {
   width: 60%;
   margin: 5px auto;
+}
+
+#selfie-cam, #image-processor {
+  border:3px dotted black;
+}
+
+#img1 {
+  width: 25px;
 }
