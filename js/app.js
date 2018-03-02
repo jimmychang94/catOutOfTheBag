@@ -59,8 +59,7 @@ var selfiePic = [];
   function startup(){
     selfieCam = document.getElementById('selfie-cam');
 
-    takeSelfieButton = document.getElementById('takeSelfieButton'),
-
+    
     imageProcessor = document.getElementById('image-processor');
     selfieButts = document.getElementsByClassName('selfieButt')
 
@@ -104,7 +103,8 @@ var selfiePic = [];
     
     selfiePicArray[index] = imageURL
     document.getElementById('img' + index).src = imageURL
-    
+    var canvas = document.getElementById('image-processor');
+    canvas.style.display = 'none';
   }
   window.addEventListener('load', startup);
 })();

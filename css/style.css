@@ -8,6 +8,9 @@ body {
   width: 50px;
 
 }
+#image-processor {
+  display: none;
+}
 #selfie-cam {
   position:fixed;
   right: 0;
