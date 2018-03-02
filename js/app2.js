@@ -234,10 +234,10 @@ function drawBarGraph() {
 //creating card objects using Card constructor
 new Card('card1', 'Who is most likely to stub a toe?');
 new Card('card2', 'Who is most likely to sleep with a teddy bear?');
-new Card('card3', 'Who is most likely to live a secrect life?');
+new Card('card3', 'Who is most likely to live a secret life?');
 new Card('card4', 'Who is the best dancer?');
 new Card('card5', 'Most likely to be famous?');
-new Card('card6', 'Looks most like a celebirty?');
+new Card('card6', 'Looks most like a celebirity?');
 new Card('card7', 'Who likes to talk the most?');
 new Card('card8', 'Who was popular in elementary?');
 new Card('card8', 'Eats peanut butter, pickles, and mayo sandwiches?');
