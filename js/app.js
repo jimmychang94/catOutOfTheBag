@@ -43,8 +43,8 @@ function render() {
   for (var i = 0; i < 4; i ++) {
     var rand = randomImage.shift();
     var imgEl = document.getElementById('img' + i);
-    
-   
+    selfiePicArray[i] = imageArray[rand].filepath
+   imgEl.src = selfiePicArray[i];
   }
 }
 function renderSelfie() {
