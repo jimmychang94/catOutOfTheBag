@@ -5,7 +5,7 @@ body {
   color: #FFF;
 }
 #img0, #img1, #img2, #img3 {
-  width: 50px;
+  width: 75px;
 
 }
 #image-processor {
@@ -210,6 +210,3 @@ a {
   border:3px dotted black;
 }
 
-#img1 {
-  width: 25px;
-}
