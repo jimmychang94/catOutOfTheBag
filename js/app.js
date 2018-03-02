@@ -55,15 +55,11 @@ function renderSelfie() {
 
 var selfiePic = [];
 (function() {
-  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton, takeSelfieButton1, takeSelfieButton2, takeSelfieButton3, takeSelfieButton4;
+  var selfieCam, takeSelfie, imageProcessor, selfies, takeSelfieButton;
   function startup(){
     selfieCam = document.getElementById('selfie-cam');
 
     takeSelfieButton = document.getElementById('takeSelfieButton'),
-    takeSelfieButton1 = document.getElementById('takeSelfieButton1'),
-    takeSelfieButton2 = document.getElementById('takeSelfieButton2'),
-    takeSelfieButton3 = document.getElementById('takeSelfieButton3'),
-    takeSelfieButton4 = document.getElementById('takeSelfieButton4'),
 
     imageProcessor = document.getElementById('image-processor');
     selfies = document.getElementById('selfies');
@@ -88,10 +84,7 @@ var selfiePic = [];
     }
 
     takeSelfieButton.addEventListener('click', takeSelfie);
-    takeSelfieButton1.addEventListener('click', takeSelfie);
-    takeSelfieButton2.addEventListener('click', takeSelfie);
-    takeSelfieButton3.addEventListener('click', takeSelfie);
-    takeSelfieButton4.addEventListener('click', takeSelfie);
+
   }
   function takeSelfie() {
     var context = imageProcessor.getContext('2d');
